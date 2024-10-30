@@ -1,7 +1,28 @@
 #!/bin/sh
 
-pwd
-cd apps-gorm || exit 1
-make debug=yes
-sudo -E make GNUSTEP_INSTALLATION_DOMAIN=SYSTEM debug=yes install
+MAKE=gmake
+
+D=$(pwd)
+cd "$D/apps-gorm" || exit 1
+"${MAKE}" debug=yes
+sudo -E "${MAKE}" GNUSTEP_INSTALLATION_DOMAIN=SYSTEM debug=yes install
+
+cd "$D/apps-gworkspace" || exit 1
+./configure
+"${MAKE}" debug=yes
+sudo -E "${MAKE}" GNUSTEP_INSTALLATION_DOMAIN=SYSTEM debug=yes install
+
+cd "$D/apps-projectcenter" || exit 1
+"${MAKE}" debug=yes
+sudo -E "${MAKE}" GNUSTEP_INSTALLATION_DOMAIN=SYSTEM debug=yes install
+
+cd "$D/apps-systempreferences" || exit 1
+"${MAKE}" debug=yes
+sudo -E "${MAKE}" GNUSTEP_INSTALLATION_DOMAIN=SYSTEM debug=yes install
+
+cd "$D/apps-thematic" || exit 1
+"${MAKE}" debug=yes
+sudo -E "${MAKE}" GNUSTEP_INSTALLATION_DOMAIN=SYSTEM debug=yes install
+
+
 

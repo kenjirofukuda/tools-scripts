@@ -9,6 +9,10 @@ install_debian()
     sudo apt update
     sudo apt upgrade
 
+    sudo apt --yes install robin-map-dev 
+    sudo apt --yes install gnutls-dev
+    sudo apt --yes install libcurl4-gnutls-dev
+    sudo apt --yes install libcurl4-openssl-dev
     sudo apt --yes install gobjc 
     sudo apt --yes install gobjc++
     sudo apt --yes install clang
@@ -27,7 +31,6 @@ install_debian()
     sudo apt --yes install libavahi-client-dev
     sudo apt --yes install flite-dev
     sudo apt --yes install libxt-dev
-    sudo apt --yes install libportaudio-dev
     sudo apt --yes install wmaker
     sudo apt --yes install portaudio19-dev
     sudo apt --yes install make

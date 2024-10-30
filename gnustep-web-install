@@ -1,5 +1,7 @@
 #!/bin/sh
 
+owner=kenjirofukuda
+
 echo "Install GNUstep"
 echo " "
 cat <<EOF
@@ -32,14 +34,14 @@ export KERNEL=`uname -s | sed "s/\-.*//g" | awk '{print(tolower($0))}'`
 echo "Begin setup for ${KERNEL}"
 
 export USER=`whoami`
-curl -fsSL > ./setup-${KERNEL} https://raw.githubusercontent.com/gnustep/tools-scripts/master/setup-${KERNEL}
+curl -fsSL > ./setup-${KERNEL} "https://raw.githubusercontent.com/${owner}/tools-scripts/master/setup-${KERNEL}"
 . ./setup-${KERNEL}
 rm ./setup-${KERNEL}
 
 echo "======== Create gnustep build directories ========"
 mkdir -p gnustep
 cd gnustep
-git clone https://github.com/gnustep/tools-scripts
+git clone "https://github.com/${owner}/tools-scripts"
 ./tools-scripts/clone-essential-repos-https
 
 echo "================ Install Dependencies ================"
